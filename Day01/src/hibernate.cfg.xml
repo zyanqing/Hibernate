@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- 链接数据库基本参数 -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://119.23.41.164:3306?characterEncoding=UTF-8</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">123456</property>
+
+        <!-- 配置Hibernate的方言  mysql 5.0以前写成org.hibernate.dialect.MySQLDialect -->
+        <property name="hibernate.dialect">MySQL5DialectUTF8</property>
+
+        <!-- ******* 可选配置 ****** -->
+        <!-- 打印SQL-->
+        <property name="hibernate.show_sql">true</property>
+        <!-- 格式化SQL -->
+        <property name="hibernate.format_sql">true</property>
+
+
+        <!-- 自动创建表
+   	        none		：不使用hibernate的自动建表
+	        create		：如果数据库中已经有表，删除原有表，重新创建，如果没有表，新建表。（测试）
+	        create-drop	：如果数据库中已经有表，删除原有表，执行操作，删除这个表。如果没有表，新建一个，使用完了删除该表。（测试）
+	        update		：如果数据库中有表，使用原有表，如果没有表，创建新表（更新表结构）
+	        validate	：如果没有表，不会创建表。只会使用数据库中原有的表。（校验映射和表结构）。
+         -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- 映射文件的引入 -->
+        <mapping resource="Customer.hdm.xml"></mapping>
+
+    </session-factory>
+</hibernate-configuration>
