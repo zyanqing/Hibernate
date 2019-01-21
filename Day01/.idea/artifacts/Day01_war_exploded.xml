@@ -30,6 +30,7 @@
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/slf4j-api-1.6.1.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/slf4j-log4j12-1.7.2.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-5.1.7-bin.jar" />
+          <element id="library" level="module" name="JUnit4" module-name="Day01" />
         </element>
       </element>
     </root>

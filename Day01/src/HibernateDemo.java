@@ -117,7 +117,7 @@ public class HibernateDemo {
 
         Customer customer = new Customer();
         customer.setCust_id(4l);
-        customer.setCust_name("li如花");
+        customer.setCust_name("li如");
         session.saveOrUpdate(customer);
 
         transaction.commit();

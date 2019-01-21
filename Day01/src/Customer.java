@@ -1,6 +1,6 @@
 public class Customer {
 
-     private long cust_id;
+     private Long cust_id;
      private String cust_name;
      private String cust_source;
      private String cust_industry;
@@ -8,11 +8,11 @@ public class Customer {
      private String cust_phone;
      private String cust_mobile;
 
-    public long getCust_id() {
+    public Long getCust_id() {
         return cust_id;
     }
 
-    public void setCust_id(long cust_id) {
+    public void setCust_id(Long cust_id) {
         this.cust_id = cust_id;
     }
 

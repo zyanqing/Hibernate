@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <!--
+	标签用来建立类与表的映射关系
+	属性：
+	name		：类的全路径
+	table		：表名（类名与表名一致，table可以省略）
+	catalog		：数据库名
+     -->
+    <class name="Customer" table="cst_customer" catalog="mydata">
+
+        <!--
+         	标签用来建立类中的属性与表中的主键的对应关系
+	        属性：
+	        name		：类中的属性名
+	        column		：表中的字段名（类中的属性名和表中的字段名如果一致，column可以省略）
+	        length		：长度
+	        type		：类型
+
+         -->
+        <id name="cust_id" column="cust_id">
+            <!-- 主键生成策略
+            increment   ：hibernate中提供的自动增长机制，适用short、int、long类型的主键。在单线程程序中使用
+                *首先发送一条语句：select max(id) from 表，然后让id+1作为下一条记录的主键
+            identity    ：适用short、int、long类型的主键，使用的是数据库底层的自动增长机制。适用于有自动增强机制的数据库（MySQL、MSSQL），但 Oracle是没有自动增长
+            sequence    ：适用short、int、long类型的主键，采用的是序列的方式。（Oracle支持序列）。像MYSQL就不能使用sequence
+            uuid        ：适用于字符串类型主键。使用hibernate中的随机方式生成字符串主键
+            native      ：本地策略，可以在identity和sequence之间进行自动切换
+            assigned    ：hibernate放弃外键的管理，需要通过手动编写程序或者用户自己设置
+            foreign     ：外部的。一对一的一种关联映射的情况下使用
+            -->
+            <generator class="native"/>
+        </id>
+
+        <!--
+	        标签用来建立类中的普通属性与表的字段的对应关系
+	        属性：
+	        name		：类中的属性名
+	        column		：表中的字段名
+	        length		：长度
+	        type		：类型
+	        not-null	：设置非空
+	        unique		：设置唯一
+        -->
+        <property name="cust_industry" column="cust_indeustry"/>
+        <property name="cust_level" column="cust_level"/>
+        <property name="cust_mobile" column="cust_mobile"/>
+        <property name="cust_name" column="cust_name"/>
+        <property name="cust_phone" column="cust_phone"/>
+        <property name="cust_source" column="cust_source"/>
+
+    </class>
+
+</hibernate-mapping>
