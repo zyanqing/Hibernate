@@ -20,7 +20,7 @@ public class HibernateDemo {
         customer.setCust_id(1l);
         customer.setCust_name("张三");
         customer.setCust_level("66");
-        session.update(customer);
+        session.save(customer);
 
         //提交事务
         transaction.commit();
