@@ -15,13 +15,23 @@
         <property name="hibernate.format_sql">true</property>
         <property name="hibernate.show_sql">true</property>
 
+        <!-- 自动创建表
+   	        none		：不使用hibernate的自动建表
+	        create		：如果数据库中已经有表，删除原有表，重新创建，如果没有表，新建表。（测试）
+	        create-drop	：如果数据库中已经有表，删除原有表，执行操作，删除这个表。如果没有表，新建一个，使用完了删除该表。（测试）
+	        update		：如果数据库中有表，使用原有表，如果没有表，创建新表（更新表结构）
+	        validate	：如果没有表，不会创建表。只会使用数据库中原有的表。（校验映射和表结构）。
+         -->
         <property name="hibernate.hbm2ddl.auto">create</property>
 
         <property name="hibernate.connection.isolation">4</property>
 
         <property name="hibernate.current_session_context_class">thread</property>
 
-        <mapping resource="Customer.hdm.xml"/>
+        <mapping resource="oneToMany/Customer.hdm.xml"/>
+        <mapping resource="oneToMany/LinkMan.hdm.xml"/>
+        <mapping resource="manyToMany/Role.hdm.xml"/>
+        <mapping resource="manyToMany/User.hdm.xml"/>
     </session-factory>
     
 </hibernate-configuration>

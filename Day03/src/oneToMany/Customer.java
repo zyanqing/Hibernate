@@ -1,3 +1,8 @@
+package oneToMany;
+
+import java.util.HashSet;
+import java.util.Set;
+
 public class Customer {
 
      private Long cust_id;
@@ -7,6 +12,18 @@ public class Customer {
      private String cust_level;
      private String cust_phone;
      private String cust_mobile;
+
+    // 通过ORM方式表示：一个客户对应多个联系人。
+    // 放置的多的一方的集合。Hibernate默认使用的是Set集合。
+     private Set<LinkMan> linkMans = new HashSet<LinkMan>();
+
+    public Set<LinkMan> getLinkMans() {
+        return linkMans;
+    }
+
+    public void setLinkMans(Set<LinkMan> linkMans) {
+        this.linkMans = linkMans;
+    }
 
     public Long getCust_id() {
         return cust_id;
@@ -74,6 +91,7 @@ public class Customer {
                 ", cust_level='" + cust_level + '\'' +
                 ", cust_phone='" + cust_phone + '\'' +
                 ", cust_mobile='" + cust_mobile + '\'' +
+                ", linkMans=" + linkMans +
                 '}';
     }
 }
