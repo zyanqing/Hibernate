@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="User" table="sys_user" catalog="mydata">
+        <id name="user_id" column="user_id">
+            <generator class="native"/>
+        </id>
+
+        <property name="user_state" column="user_state"/>
+        <property name="user_password" column="user_password"/>
+        <property name="user_name" column="user_name"/>
+        <property name="user_code" column="user_code"/>
+
+        <set name="roles" table="sys_user_role" cascade="save-update" catalog="mydata">
+            <key column="user_id"></key>
+            <many-to-many column="role_id" class="Role"></many-to-many>
+        </set>
+
+    </class>
+
+</hibernate-mapping>
